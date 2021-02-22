@@ -1,7 +1,3 @@
-<%@ page import="java.util.List" %>
-<%@ page import="table.TableRow" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.Arrays" %>
 <%--
   Created by IntelliJ IDEA.
   User: Лиза
@@ -9,8 +5,7 @@
   Time: 14:20
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page session="true" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -171,7 +166,7 @@
                 }
 
                 function reloadFrame() {
-                    resizeFrame('dataFrame');
+                    resizeFrame();
                     document.getElementById('dataFrame').contentWindow.location.reload();
                 }
 
@@ -184,11 +179,17 @@
         </div>
     </div>
     <script>
-        function resizeFrame(frameName) {
-            let iframe = document.getElementById("dataFrame");
+        function resizeFrame() {
+            let iframe = document.querySelectorAll("iframe")[0];
             let body = iframe.contentWindow.document.body;
             iframe.width = body.scrollWidth;
             iframe.height = body.scrollHeight;
+        }
+        function clearFrame() {
+            let iframe = document.querySelectorAll("iframe")[0];
+            let body = iframe.contentWindow.document.body;
+            iframe.width = body.scrollWidth + 10;
+            iframe.height = 150;
         }
     </script>
     <script>
@@ -216,8 +217,9 @@
                 url: "ControllerServlet.java?act=" + act,
                 method: 'get',
                 cache: false
-            }).done(function (data) {
+            }).done(function () {
                 reloadFrame();
+                clearFrame();
             });
             let canvas = document.getElementById("myCanvas");
             let ctx = canvas.getContext("2d");
