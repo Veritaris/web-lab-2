@@ -189,7 +189,7 @@
             let iframe = document.querySelectorAll("iframe")[0];
             let body = iframe.contentWindow.document.body;
             iframe.width = body.scrollWidth + 10;
-            // iframe.height = 150;
+            iframe.height = 150;
         }
     </script>
     <script>
