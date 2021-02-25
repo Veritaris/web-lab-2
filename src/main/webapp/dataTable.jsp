@@ -16,6 +16,7 @@
 <body>
     <table>
         <tr id="tHeader">
+            <th>id</th>
             <th>X</th>
             <th>Y</th>
             <th>R</th>
@@ -31,6 +32,7 @@
         <%=
                     String.format(
                         "<tr>" +
+                            "<th>%d</th>" +
                             "<th>%s</th>" +
                             "<th>%s</th>" +
                             "<th>%s</th>" +
@@ -38,6 +40,7 @@
                             "<th>%s</th>" +
                             "<th>%s</th>" +
                         "</tr>",
+                        ((TableRow) row).id,
                         ((TableRow) row).X,
                         ((TableRow) row).Y,
                         ((TableRow) row).R,
