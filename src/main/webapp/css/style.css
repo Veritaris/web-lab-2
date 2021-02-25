@@ -98,6 +98,12 @@ table, tr, th {
     font-size: 15px;
 
 }
+th.container {
+    height: 1em;
+}
+td.container {
+    height: 1em;
+}
 iframe {
     border: none;
 }

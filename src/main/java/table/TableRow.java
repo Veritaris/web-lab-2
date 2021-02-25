@@ -3,6 +3,7 @@ package table;
 import java.io.Serializable;
 
 public class TableRow implements Serializable {
+    public long id;
     public double X;
     public double Y;
     public double R;
@@ -10,13 +11,22 @@ public class TableRow implements Serializable {
     public String dateTime;
     public long executionTime;
 
-    public TableRow(double x, double y, double r, boolean result, String dateTime, long executionTime) {
+    public TableRow(long id, double x, double y, double r, boolean result, String dateTime, long executionTime) {
+        this.id = id;
         this.X = x;
         this.Y = y;
         this.R = r;
         this.result = result;
         this.dateTime = dateTime;
         this.executionTime = executionTime;
+    }
+
+    public long getID() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public double getX() {

@@ -138,7 +138,7 @@
                     let g = canvas.getContext("2d");
                     let r = document.getElementById("rValue").value;
                     let error = document.getElementById("error");
-                    if (r !== ""){
+                    if (r !== "") {
                         error.innerHTML = "";
                         let rect = canvas.getBoundingClientRect();
                         let xCoordinate = e.clientX - rect.left - 150;
@@ -160,7 +160,7 @@
                         cache: false
                     }).done(function (data) {
                         reloadFrame();
-                        console.log('JSON data: ' + JSON.stringify(data));
+                        console.log('JSON data: ' + JSON.stringify(data) + '\nrows amount is: ' + data.length);
                         console.log('Session ID: ' + '<%= session.getId() %>');
                     });
                 }
@@ -183,13 +183,13 @@
             let iframe = document.querySelectorAll("iframe")[0];
             let body = iframe.contentWindow.document.body;
             iframe.width = body.scrollWidth;
-            iframe.height = body.scrollHeight;
+            iframe.height = body.scrollHeight + 20;
         }
         function clearFrame() {
             let iframe = document.querySelectorAll("iframe")[0];
             let body = iframe.contentWindow.document.body;
             iframe.width = body.scrollWidth + 10;
-            iframe.height = 150;
+            // iframe.height = 150;
         }
     </script>
     <script>

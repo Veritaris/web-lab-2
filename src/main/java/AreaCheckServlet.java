@@ -1,21 +1,18 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import table.TableRow;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import static java.lang.Math.sqrt;
 
@@ -53,6 +50,7 @@ public class AreaCheckServlet extends HttpServlet {
         double y2 = peak;
         double x3 = peak;
         double y3 = 0;
+        long id = 0;
 
         double a = (x1 - x) * (y2 - y1) - (x2 - x1) * (y1 - y);
         double b = (x2 - x) * (y3 - y2) - (x3 - x2) * (y2 - y);
@@ -71,13 +69,22 @@ public class AreaCheckServlet extends HttpServlet {
         Date date = new Date();
         DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
         String formatDate = dateFormat.format(date);
+
+        if (table.size() > 0) {
+            id = table.get(table.size() - 1).id + 1;
+        } else {
+            id = 0;
+        }
+
         table.add(
-                new TableRow(x, y, r, check, formatDate, timeWorkCode)
+                new TableRow(id, x, y, r, check, formatDate, timeWorkCode)
         );
+
         session.setAttribute("data", table);
-        writer.println(objectMapper.writeValueAsString(table));
-//        writer.println(table);
+        String data = objectMapper.writeValueAsString(table);
+        writer.println(data);
         writer.close();
+        System.out.printf("Table rows amount is: %s\n", table.size());
     }
 
         private boolean validateValues(String x, String y, String r){
@@ -98,6 +105,7 @@ public class AreaCheckServlet extends HttpServlet {
                 return false;
             }
         }
+
         private boolean validateY(String yString){
             try{
                 double y = Double.parseDouble(yString);
@@ -106,6 +114,7 @@ public class AreaCheckServlet extends HttpServlet {
                 return false;
             }
         }
+
         private boolean validateR(String rString){
             try{
                 double r = Double.parseDouble(rString);

@@ -29,22 +29,22 @@
                 for (Object row: table) {
         %>
         <%=
-        String.format(
-            "<tr>" +
-                "<th>%s</th>" +
-                "<th>%s</th>" +
-                "<th>%s</th>" +
-                "<th>%s</th>" +
-                "<th>%s</th>" +
-                "<th>%s</th>" +
-            "</tr>",
-            ((TableRow) row).X,
-            ((TableRow) row).Y,
-            ((TableRow) row).R,
-            ((TableRow) row).result,
-            ((TableRow) row).dateTime,
-            ((TableRow) row).executionTime
-        )
+                    String.format(
+                        "<tr>" +
+                            "<th>%s</th>" +
+                            "<th>%s</th>" +
+                            "<th>%s</th>" +
+                            "<th>%s</th>" +
+                            "<th>%s</th>" +
+                            "<th>%s</th>" +
+                        "</tr>",
+                        ((TableRow) row).X,
+                        ((TableRow) row).Y,
+                        ((TableRow) row).R,
+                        ((TableRow) row).result,
+                        ((TableRow) row).dateTime,
+                        ((TableRow) row).executionTime
+                    )
         %>
         <%
                 }
