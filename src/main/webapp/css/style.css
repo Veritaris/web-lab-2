@@ -79,16 +79,15 @@ button{
     background-color: #21ccd0;
     height: 300px;
 }
-#table{
+#table {
     position: absolute;
     left: 50%;
     margin: 1%;
     max-height: 530px;
     overflow: auto;
 }
-table{
+table {
     width: 600px;
-    height: 50px;
 }
 table, tr, th {
     border: 4px outset deepskyblue;

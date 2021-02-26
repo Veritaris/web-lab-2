@@ -183,12 +183,12 @@
             let iframe = document.querySelectorAll("iframe")[0];
             let body = iframe.contentWindow.document.body;
             iframe.width = body.scrollWidth;
-            iframe.height = body.scrollHeight + 22;
+            iframe.height = body.scrollHeight + 21;
         }
         function clearFrame() {
             let iframe = document.querySelectorAll("iframe")[0];
             let body = iframe.contentWindow.document.body;
-            iframe.width = body.scrollWidth + 10;
+            iframe.width = body.scrollWidth + 20;
             iframe.height = 150;
         }
     </script>
